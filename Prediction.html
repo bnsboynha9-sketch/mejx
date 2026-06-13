@@ -373,24 +373,29 @@ function predictFortune(event) {
     const resultNumDiv = document.getElementById("result-number");
     const resultTextSpan = document.getElementById("result-text-content");
 
+    // លាក់ប្រអប់លទ្ធផលទាំងអស់សិន
     successBox.style.display = "none";
     errorBox.style.display = "none";
     resultDisplay.style.display = "none";
 
+    // ១. ពិនិត្យមើលថាតើប្រអប់ទទេរឬអត់
     if (phoneInput === "") {
         errorBox.textContent = "សូមបញ្ចូលលេខទូរស័ព្ទរបស់អ្នក!";
         errorBox.style.display = "block";
         return;
     }
 
+    // ២. ពិនិត្យមើលថាតើត្រូវចំជាលេខសុទ្ធ និងមានប្រវែង ៩ ឬ ១០ ខ្ទង់ឬអត់
     const numRegex = /^[0-9]{9,10}$/;
     if (!numRegex.test(phoneInput)) {
-        errorBox.textContent = "សូមបញ្ចូលលេខទូរស័ព្ទឱ្យបានត្រឹមត្រូវ! (មានតែលេខ ៩ ឬ ១០ ខ្ទង់)";
+        errorBox.textContent = "សូមបញ្ចូលលេខទូរស័ព្ទឱ្យបានត្រឹមត្រូវ !";
         errorBox.style.display = "block";
         return;
     }
 
+    // ៣. ចាប់យក ៦ ខ្ទង់ចុងក្រោយជានិច្ច ទោះបីជាលេខមាន ៩ ឬ ១០ ខ្ទង់ក៏ដោយ
     let last6Digits = phoneInput.slice(-6);
+
     const division = parseInt(last6Digits, 10) / 80;
     const decimalPart = division - Math.floor(division);
     let resultNum = Math.round(decimalPart * 80);
@@ -400,17 +405,15 @@ function predictFortune(event) {
     }
 
     if (rules[resultNum]) {
-        successBox.textContent = "✅ គណនាលេខវាសនាបានជោគជ័យ!";
+        successBox.textContent = "គណនាលេខវាសនាបានជោគជ័យ!";
         successBox.style.display = "block";
 
-        resultNumDiv.innerHTML = 🎯 លទ្ធផលលេខកូដ៖ លេខ ${resultNum};
+        resultNumDiv.textContent = "លទ្ធផលលេខកូដ៖ លេខ " + resultNum;
         resultTextSpan.textContent = rules[resultNum];
         resultDisplay.style.display = "block";
-    } else {
-        errorBox.textContent = "កើតមានបញ្ហាបច្ចេកទេស សូមសាកល្បងម្តងទៀត។";
-        errorBox.style.display = "block";
     }
 }
 </script>
+
 </body>
 </html>
