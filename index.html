@@ -1,235 +1,541 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Comatible" content="IE=edge">
-    <meta name="Viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Car Sale Website</title>
-    <!-- Link To CSS -->
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mao Vannak | Portfolio Website</title>
     <!-- Box Icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-</head>
-<body>
-   <!-- Navbar -->
-  <header>
-    <div class="logo">MaoVannak</div>
-    <nav>
-      <a href="#" class="active">Home</a>
-      <a href="#">About</a>
-      <a href="skills.html">Skills</a>
-      <a href="homepage.html">Projoet</a>
-      <a href="memory.html">Memory in school</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="home" id="home">
-    <div class="image">
-      <img src="img/IMG.jpg" alt="profile">
-    </div>
-
-    <div class="content">
-      <h1>Hi, It's <span>Mao Vannak</span></h1>
-      <h2>I'm a <span class="typing">Developer</span></h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus labore dolores esse.
-        Odit similique doloribus tenetur doloremque.
-      </p>
-
-      <div class="social">
-        <a href="https://www.facebook.com/jx.jy.5"><i class='bx bxl-facebook'></i></a>
-        <a href="https://t.me/MaoVannak9"><i class='bx bxl-telegram'></i></a>
-        <a href="https://"><i class='bx bxl-tiktok'></i></a>
-        <a href="https://"><i class='bx bxl-instagram'></i></a>
-      </div>
-
-      <button class="btn">Hire me</button>
-    </div>
-  </section>
-
-    <!-- Home -->
-    <div class="heading1">
-            <br><span><h1>About ME</h1></span>
-            <P><h3>I'm Shaina, a passionate web developer and aspiring data analyst with hands-on experience in <br>HTML, CSS, JavaScript, PHP, and MySQL. I enjoy building user-friendly, responsive web<br> applications and transforming data into meaningful insights using tools like Python, Pandas, <br>Matplotlib, and Google Colab. With a strong foundation in both frontend/backend development<br> and growing expertise in data analysis, I strive to create solutions that are not only visually<br> appealing but also data-driven, efficient, and impactful.</h3><P>
-        </div>
-    <section class="home" id="home">
-        <div class="home-text">
-            <div class="feature-grid">
-    <div class="feature-card">
-      <div class="icon">🎨</div>
-      <h3>Modern UI/UX</h3>
-      <p>Designing sleek, intuitive interfaces that provide seamless user experiences.</p>
-    </div>
-
-    <div class="feature-card">
-      <div class="icon">📊</div>
-      <h3>Data Analysis</h3>
-      <p>Turning raw data into actionable insights using Python, Pandas, and visualization tools.</p>
-    </div>
-
-    <div class="feature-card">
-      <div class="icon">⚡️</div>
-      <h3>Performance & Scalability</h3>
-      <p>Building fast, efficient, and scalable web applications that grow with your needs.</p>
-    </div>
-
-  </div>
-    </section>
-    <!-- Cars Section -->
-    <section class="cars" id="cars">
-        <div class="heading">
-            <span>.</span>
-        </div>
-    </section>
-    <!-- Section -->
-  <section class="tools">
-    <h1>Tools & Technologies</h1>
-    <p>Web Development & Data Analysis</p>
-
-    <div class="grid">
-
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png">
-        <h3>HTML5</h3>
-      </div>
-
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png">
-        <h3>CSS3 / Tailwind</h3>
-      </div>
-
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png">
-        <h3>JavaScript</h3>
-      </div>
-
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/919/919830.png">
-        <h3>PHP</h3>
-      </div>
- <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png">
-        <h3>Python</h3>
-      </div>
-
-    </div>
-  </section>
     <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f172a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Header / Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #334155;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #22c55e;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-left: 30px;
+            transition: 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: #22c55e;
+        }
+
+        /* Hero Section */
+        .home {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 10%;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .image img {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #22c55e;
+            box-shadow: 0 0 30px rgba(34, 197, 94, 0.3);
+        }
+
+        .content h1 {
+            font-size: 48px;
+        }
+
+        .content h1 span {
+            color: #22c55e;
+        }
+
+        .content h2 {
+            font-size: 32px;
+            margin: 10px 0;
+        }
+
+        .typing {
+            color: #22c55e;
+            border-right: 2px solid #22c55e;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        .social {
+            margin: 20px 0;
+        }
+
+        .social a {
+            color: #ffffff;
+            font-size: 28px;
+            margin-right: 15px;
+            transition: 0.3s;
+        }
+
+        .social a:hover {
+            color: #22c55e;
+            transform: translateY(-3px);
+        }
+
+        .btn {
+            background: #22c55e;
+            color: white;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #16a34a;
+            transform: scale(1.05);
+        }
+
+        /* About Section */
+        .heading1 {
+            text-align: center;
+            padding: 40px 10% 20px;
+        }
+
+        .heading1 h1 {
+            font-size: 36px;
+            color: #22c55e;
+            margin-bottom: 20px;
+        }
+
+        .heading1 p {
+            max-width: 900px;
+            margin: 0 auto;
+            color: #cbd5e1;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            padding: 40px 10%;
+        }
+
+        .feature-card {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 15px;
+            width: 280px;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid #334155;
+        }
+: .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: #22c55e;
+        }
+
+        .feature-card .icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            color: #22c55e;
+            margin-bottom: 10px;
+        }
+
+        /* Tools Section */
+        .tools {
+            text-align: center;
+            padding: 60px 10%;
+            background: #0a0f1f;
+        }
+
+        .tools h1 {
+            font-size: 36px;
+            color: #22c55e;
+        }
+
+        .grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 20px 30px;
+            border-radius: 12px;
+            text-align: center;
+            width: 140px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            background: #22c55e;
+        }
+
+        .card img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .card h3 {
+            margin-top: 12px;
+            font-size: 16px;
+        }
+
+        /* Skills Chart Section */
+        .skills-section {
+            text-align: center;
+            padding: 60px 10%;
+        }
+
+        .chart-box {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 700px;
+            margin: 30px auto;
+        }
+
+        canvas {
+            max-height: 400px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 60px 10%;
+            background: #0a0f1f;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #22c55e;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .contact-info, .contact-form {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 15px;
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .contact-info h3 {
+            color: #22c55e;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin: 15px 0;
+        }
+
+        .contact-form label {
+            display: block;
+            margin: 15px 0 5px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            background: #334155;
+            border: none;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .contact-form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background: #22c55e;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .contact-form button:hover {
+            background: #16a34a;
+        }
+
+        /* Back Link */
+        .back-link {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .back-link a {
+            color: white;
+            text-decoration: none;
+            background: #334155;
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-link a:hover {
+            background: #22c55e;
+        }
+
+        /* Copyright */
+        .copyright {
+            text-align: center;
+            padding: 25px;
+            background: #0a0f1f;
+            border-top: 1px solid #334155;
+        }
+: /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav a {
+                margin: 0 15px;
+            }
+            .home {
+                flex-direction: column;
+                text-align: center;
+            }
+            .content h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<section class="skills-section">
+    <!-- Navbar -->
+    <header>
+        <div class="logo">MaoVannak</div>
+        <nav>
+            <a href="#" class="active">Home</a>
+            <a href="#">About</a>
+            <a href="#">Skills</a>
+            <a href="#">Project</a>
+            <a href="#">Memory</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
 
-  <h1>My Skills & Projects Breakdown</h1>
+    <!-- Hero Section -->
+    <section class="home" id="home">
+        <div class="image">
+            <img src="img/IMG.jpg" alt="profile">
+        </div>
+        <div class="content">
+            <h1>Hi, It's <span>Mao Vannak</span></h1>
+            <h2>I'm a <span class="typing">Developer</span></h2>
+            <p>I'm a passionate web developer and aspiring data analyst with hands-on experience in HTML, CSS, JavaScript, PHP, and MySQL. I enjoy building user-friendly, responsive web applications.</p>
+            <div class="social">
+                <a href="https://www.facebook.com/jx.jy.5"><i class='bx bxl-facebook'></i></a>
+                <a href="https://t.me/MaoVannak9"><i class='bx bxl-telegram'></i></a>
+                <a href="#"><i class='bx bxl-tiktok'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+            </div>
+            <button class="btn">Hire me</button>
+        </div>
+    </section>
 
-  <div class="chart-box">
-    <h2>Most Used Tools & Programming Languages</h2>
-    <canvas id="myChart"></canvas>
-  </div>
-
-</section>
-<script src="script.js"></script>
-
-    <!-- Parts Section -->
-    <section class="parts" id="parts">
-        <div class="heading">
-            <span>.</span>
-        </disv>
-        <!-- Parts Container -->
-       <section class="contact">
-       <p><a href="portfoliowebsite.html"style="color: white; padding: 20px;"><h3><i class="bx bx-arrow-back"></i>Back</h3></a></p>
-
-<style>
-body{
-    font-family: Arial;
-    background:#0f172a;
-    color:white;
-}
-.box{
-    width:400px;
-    margin:60px auto;
-    background:#1e293b;
-    padding:25px;
-    border-radius:10px;
-}
-input,button{
-    width:100%;
-    padding:10px;
-    margin:8px 0;
-    border:none;
-    border-radius:6px;
-}
-button{
-    background:#22c55e;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-}
-.result{
-    background:#020617;
-    padding:15px;
-    margin-top:15px;
-    border-radius:6px;
-    display:none;
-}
-</style>
-</head>
-<body>
-
-<div class="box">
-
-
-</script>
-
-
-</body>
-  <h2 class="title">Contact Me</h2>
-
-
-  <div class="container">
-
-    <!-- Left Side -->
-    <div class="contact-info">
-      <h3>Contact Information</h3>
-
-      <p>📧 bnsboynha9@gmail.com</p>
-      <p>📞 +855 977943746</p>
-      <p>📍 Poipet</p>
-
-      <div class="social">
-        <a href="https://t.me/MaoVannak9"><i class='bx bxl-telegram'></i></a>
-        <a href="#"><i class='bx bxl-github'></i></a>
-        <a href="https://www.facebook.com/jx.jy.5"><i class='bx bxl-facebook'></i></a>
-      </div>
+    <!-- About Section -->
+    <div class="heading1">
+        <h1>About ME</h1>
+        <p>I'm Mao Vannak, a passionate web developer and aspiring data analyst with hands-on experience in HTML, CSS, JavaScript, PHP, and MySQL. I enjoy building user-friendly, responsive web applications and transforming data into meaningful insights using tools like Python, Pandas, Matplotlib, and Google Colab. With a strong foundation in both frontend/backend development and growing expertise in data analysis, I strive to create solutions that are not only visually appealing but also data-driven, efficient, and impactful.</p>
     </div>
 
-    <!-- Right Side -->
-    <div class="contact-form">
-      <form>
-        <label>Name</label>
-        <input type="text" placeholder="Your Name">
-
-        <label>Email</label>
-        <input type="email" placeholder="Your Email">
-
-        <label>Message</label>
-        <textarea placeholder="Your Message"></textarea>
-
-        <button type="submit">Send Message</button>
-      </form>
+    <!-- Feature Grid -->
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="icon">🎨</div>
+            <h3>Modern UI/UX</h3>
+            <p>Designing sleek, intuitive interfaces that provide seamless user experiences.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">📊</div>
+            <h3>Data Analysis</h3>
+            <p>Turning raw data into actionable insights using Python, Pandas, and visualization tools.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">⚡️</div>
+            <h3>Performance & Scalability</h3>
+            <p>Building fast, efficient, and scalable web applications that grow with your needs.</p>
+        </div>
     </div>
 
-  </div>
+    <!-- Tools & Technologies -->
+    <section class="tools">
+        <h1>Tools & Technologies</h1>
+        <p>Web Development & Data Analysis</p>
+        <div class="grid">
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML5">
+                <h3>HTML5</h3>
+            </div>
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS3">
+                <h3>CSS3 / Tailwind</h3>
+            </div>
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript">
+<h3>JavaScript</h3>
+            </div>
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/919/919830.png" alt="PHP">
+                <h3>PHP</h3>
+            </div>
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python">
+                <h3>Python</h3>
+            </div>
+        </div>
+    </section>
 
-</section>
+    <!-- Skills Chart Section -->
+    <section class="skills-section">
+        <h1>My Skills & Projects Breakdown</h1>
+        <div class="chart-box">
+            <h2>Most Used Tools & Programming Languages</h2>
+            <canvas id="myChart"></canvas>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="back-link">
+            <a href="#"><i class='bx bx-arrow-back'></i> Back to Portfolio</a>
+        </div>
+        <h2 class="title">Contact Me</h2>
+        <div class="container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p>📧 bnsboynha9@gmail.com</p>
+                <p>📞 +855 977943746</p>
+                <p>📍 Poipet, Cambodia</p>
+                <div class="social">
+                    <a href="https://t.me/MaoVannak9"><i class='bx bxl-telegram'></i></a>
+                    <a href="#"><i class='bx bxl-github'></i></a>
+                    <a href="https://www.facebook.com/jx.jy.5"><i class='bx bxl-facebook'></i></a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <label>Name</label>
+                    <input type="text" placeholder="Your Name" required>
+                    <label>Email</label>
+                    <input type="email" placeholder="Your Email" required>
+                    <label>Message</label>
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <!-- Copyright -->
     <div class="copyright">
-        <p>&#169;2026 Mao Vannak All Right Reserved</p>
+        <p>&#169; 2026 Mao Vannak. All Rights Reserved.</p>
     </div>
-    <!-- Link To Js -->
-    <script src="main.js"></script>
-</body>
-</html>
+
+    <!-- Chart.js Script -->
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['HTML/CSS', 'JavaScript', 'PHP', 'Python', 'SQL', 'React'],
+                datasets: [{
+                    label: 'Skill Level (%)',
+                    data: [90, 75, 70, 65, 80, 60],
+                    backgroundColor: '#22c55e',
+                    borderColor: '#16a34a',
+                    borderWidth: 1,
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { labels: { color: '#fff' } }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        max: 100,
+                        grid: { color: '#334155' },
+                        ticks: { color: '#fff' }
+                    },
+                    x: { ticks: { color: '#fff' } }
+                }
+            }
+        });
+
+        // Simple form alert
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! Your message has been sent.');
+            this.reset();
+        });
+
+        // Typing animation effect
+        const typingElement = document.querySelector('.typing');
+        const words = ['Developer', 'Designer', 'Data Analyst'];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
