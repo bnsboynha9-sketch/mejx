@@ -1,28 +1,135 @@
 <p><a href="index.html"style="color: black; padding: 20px;"><h2><i class="bx bx-arrow-back"></i><-Back</h2></a></p>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>BBU.301</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BBU.301</title>
+
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:url("img/TikVideo.App_7622507371998301461_12.jpeg") no-repeat center center/cover;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    width:420px;
+    padding:30px;
+    border-radius:20px;
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,.15);
+    box-shadow:0 20px 40px rgba(0,0,0,.5);
+    transform-style:preserve-3d;
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:rotateX(0deg) rotateY(0deg);
+    }
+    50%{
+        transform:rotateX(6deg) rotateY(-6deg);
+    }
+}
+
+h1{
+    text-align:center;
+    color:white;
+    margin-bottom:25px;
+    text-shadow:2px 2px 10px black;
+}
+
+.back{
+    display:inline-block;
+    margin-bottom:20px;
+    color:white;
+    text-decoration:none;
+    font-size:20px;
+}
+
+.menu a{
+    display:block;
+    text-decoration:none;
+    margin:12px 0;
+}
+
+.menu button{
+    width:100%;
+    padding:15px;
+    font-size:18px;
+    border:none;
+    border-radius:15px;
+    cursor:pointer;
+    color:white;
+    background:linear-gradient(145deg,#00bfff,#0066ff);
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.4),
+        inset 0 2px 5px rgba(255,255,255,.4);
+    transition:.3s;
+}
+
+.menu button:hover{
+    transform:translateY(-5px) scale(1.05);
+    box-shadow:0 15px 30px rgba(0,0,0,.5);
+}
+
+.menu button:active{
+    transform:translateY(2px);
+}
+</style>
+
 </head>
 <body>
+
+<div class="container">
+
+<a href="index.html" class="back">
+<i class='bx bx-arrow-back'></i> Back
+</a>
+
 <h1>MAO VANNAK</h1>
 
-	<body background="img/TikVideo.App_7622507371998301461_12.jpeg" style="background-size: cover; background-position: center;color: black;">
+<div class="menu">
 
+<a href="homework.html"><button>Homework</button></a>
 
-	<p><br><a href="homework.html"><h1>homework</h1></a></p>
-	<p><br><a href="homework1.html"><h1>homework 1</h1></a></p>
-	<p><br><a href="homework2.html"><h1>homework 2</h1></a></p>
-	<p><br><a href="Table2.html"><h1>TABLE 2</h1></a></p>
-	<p><br><a href="Table3.html"><h1>TABLE 3</h1></a></p>
-	<p><br><a href="Tabie4.html"><h1>TABLE 4</h1></a></p>
-	<p><br><a href="gmail.html"><h1>GMAIL</h1></a></p>
-	<p><br><a href="app store.html"><h1>APP STORE</h1></a></p>
-	<p><br><a href="Data type  PHP .html"><h1>Data type PHP</h1></a></p>
-	<p><br><a href="Electricity.html"><h1>Electricity</h1></a></p>
-	<p><br><a href="total.html"><h1>TOTAL</h1></a></p>
-	<p><br><a href="Prediction.html"><h1>Prediction</h1></a></p>
+<a href="homework1.html"><button>Homework 1</button></a>
+
+<a href="homework2.html"><button>Homework 2</button></a>
+
+<a href="Table2.html"><button>Table 2</button></a>
+
+<a href="Table3.html"><button>Table 3</button></a>
+
+<a href="Tabie4.html"><button>Table 4</button></a>
+
+<a href="gmail.html"><button>Gmail</button></a>
+
+<a href="app store.html"><button>App Store</button></a>
+
+<a href="Data type  PHP .html"><button>Data type PHP</button></a></p>
+
+<a href="Electricity.html"><button>Electricity</button></a>
+
+<a href="total.html"><button>Total</button></a>
+
+<a href="Prediction.html"><button>Prediction</button></a>
+
+</div>
+
+</div>
+
 </body>
 </html>
