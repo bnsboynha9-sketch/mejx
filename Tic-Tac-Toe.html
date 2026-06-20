@@ -1,0 +1,173 @@
+<p><a href="index.html"style="color:white; padding: 20px;"><h2><i class="bx bx-arrow-back"></i><-Home</h2></a></p>
+<p><a href="Game.html"style="color: white; padding: 20px;"><h2><i class="bx bx-arrow-back"></i><-Back</h2></a></p>
+<!DOCTYPE html>
+<html lang="km">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tic-Tac-Toe</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#222;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+h1{
+    margin-bottom:10px;
+}
+
+#status{
+    font-size:22px;
+    margin-bottom:15px;
+}
+
+.board{
+    display:grid;
+    grid-template-columns:repeat(3,100px);
+    grid-template-rows:repeat(3,100px);
+    gap:5px;
+}
+
+.cell{
+    background:#444;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:55px;
+    cursor:pointer;
+    user-select:none;
+}
+
+.cell:hover{
+    background:#555;
+}
+
+button{
+    margin-top:20px;
+    padding:10px 20px;
+    font-size:18px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>⭕ Tic-Tac-Toe ❌</h1>
+
+<div id="status">វេនរបស់ X</div>
+
+<div class="board" id="board"></div>
+
+<button onclick="restart()">🔄 លេងម្តងទៀត</button>
+
+<script>
+
+const board=document.getElementById("board");
+const status=document.getElementById("status");
+
+let current="X";
+let cells=["","","","","","","","",""];
+let playing=true;
+
+const winPatterns=[
+[0,1,2],
+[3,4,5],
+[6,7,8],
+[0,3,6],
+[1,4,7],
+[2,5,8],
+[0,4,8],
+[2,4,6]
+];
+
+function drawBoard(){
+
+board.innerHTML="";
+
+cells.forEach((value,index)=>{
+
+const cell=document.createElement("div");
+cell.className="cell";
+cell.innerText=value;
+
+cell.onclick=()=>play(index);
+
+board.appendChild(cell);
+
+});
+
+}
+
+function play(index){
+
+if(!playing) return;
+
+if(cells[index]!="") return;
+
+cells[index]=current;
+
+checkWinner();
+
+current=current=="X"?"O":"X";
+
+if(playing)
+status.innerText="វេនរបស់ "+current;
+
+drawBoard();
+
+}
+
+function checkWinner(){
+
+for(let p of winPatterns){
+
+let[a,b,c]=p;
+
+if(
+cells[a] &&
+cells[a]==cells[b] &&
+cells[a]==cells[c]
+){
+
+status.innerText=cells[a]+" ឈ្នះ!";
+playing=false;
+return;
+
+}
+
+}
+
+if(!cells.includes("")){
+
+status.innerText="ស្មើ!";
+playing=false;
+
+}
+
+}
+
+function restart(){
+
+cells=["","","","","","","","",""];
+current="X";
+playing=true;
+status.innerText="វេនរបស់ X";
+drawBoard();
+
+}
+
+drawBoard();
+
+</script>
+
+</body>
+</html>
